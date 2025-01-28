@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+          body {
+            font-family: 'Roboto', sans-serif;
+            overscroll-behavior: none;
+        }
+        #main-container-fluid{
+            background-image: url('{% static "Image/ProjectEcommerce-Login.jpg" %}');
+            min-height: 100vh;
+            background-size: cover;
+            background-position:center;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-blend-mode: overlay;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Navbar CSS */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #8B0000;
+        }
+        .logo {
+            width: 40px; /* Increased width */
+            height: 40px; /* Increased height */
+            object-fit: contain; /* Ensures the logo is properly scaled */
+        }
+        .navbar-brand {
+            color: #f8f9fa;
+        }
+        .nav-link {
+            color: #f8f9fa;
+            text-decoration: none; /* Remove default underline */
+            position: relative;    /* Required for pseudo-element positioning */
+            transition: all 0.3s ease;
+        }
+        .nav-link:active {
+            color: white;
+        }
+        .navbar-toggler {
+            border-color: white;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White icon */
+        }
+        #gift-shop-btn:hover {
+            cursor:text;
+        }
+        #footerLogo {
+            width: 40px;
+            height: 40px;
+        }
+        #footerEmail:hover {
+            text-decoration: none;
+        }
+        .footer {
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-title {
+            margin-bottom: 10px;
+        }
+        .footer-text {
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .footer-btn {
+            background-color: white;
+            color: #333;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        .footer-btn:hover {
+            background-color: white;
+            color: #333;
+        }
+        .footer-divider {
+            border-color: white;
+            margin: 20px 0;
+        }
+        .footer-icon {
+            color: white;
+        }
+        .footer-icon:hover {
+            color: white;
+        }
+        #main-container {
+          display: flex;
+          justify-content: center;
+          padding-top: 125px;
+          padding-bottom: 56px;
+        }
+        .form-container {
+            max-width: 400px;
+            background-color: rgba(248, 249, 250, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 44px;
+        }
+        .form-control {
+            border-radius: 7px;
+        }
+        .form-control:focus {
+            border-color: #dc3545;
+            box-shadow: 0 0 5px #dc3545;
+        }
+        .btn-danger {
+            border: none;
+            border-radius: 50px;
+            width: 100%;
+            padding: 10px;
+        }
+        .alert {
+          list-style-type: none;
+        }
+        textarea {
+            resize: none;
+        }
+        @media (min-width: 768px) {
+          .form-container {
+            min-width: 450px;
+          }
+        }
+        @media (min-width: 992px) {
+            .nav-link:hover::after {
+                width: 100%; /* Expand underline on hover */
+            }
+        }
+        @media (max-width: 992px) and (min-width: 768px) {
+            .nav-link:hover::after {
+                width: 8%; /* Expand underline on hover */
+            }
+        }
+        @media (min-width: 768px) {
+            .nav-link:hover {
+                color: white;
+            }
+            .nav-link::after {
+                content: ""; /* Create the underline */
+                position: absolute;
+                bottom: 0; /* Align underline to the bottom */
+                left: 0;
+                width: 0; /* Start with no underline */
+                height: 2px; /* Thickness of the underline */
+                background-color: white; /* Color of the underline */
+                transition: width 0.3s ease; /* Smooth expansion effect */
+            }
+        }
+        @media (max-width: 768px) {
+            #contact {
+                margin-top: 25px;
+            }
+            #gift-shop-btn-division {
+                margin-top: 25px;
+            }
+            #footer-link {
+                margin-top: 10px;
+            }
+            #footerLogo-division {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'Guest/Navbar.html' %}
+    <div class="container-fluid" id="main-container-fluid">
+        <div class="container" id="main-container">
+            <div>
+              <center>
+              {% if messages %}
+                {% for message in messages %}
+                  {% if message.tags == 'warning' %}
+                    <li class="alert alert-danger w-75">{{ message }}</li>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              </center>
+              <div class="form-container">
+                <h2 class="text-center font-weight-bold mb-5 text-danger">SIGNUP</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" placeholder="Enter first name" name="firstName" required id="firstName">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" placeholder="Enter last name" required name="lastName" id="lastName">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Profile photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" required accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email" required id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" placeholder="Enter mobile number" name="mobile" required id="mobile">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" name="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter username" name="username" required id="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter password" name="password" required id="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm password" name="confirmPassword" required>
+                    </div>
+                    <center>
+                      <button type="submit" class="btn btn-danger">SignUp</button>
+                    </center>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+    {% include 'Guest/Footer.html' %}
+    <script>
+        // Change navbar background on scroll
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) { // Check if scrolled down 50px or more
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>

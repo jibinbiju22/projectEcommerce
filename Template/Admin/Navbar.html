@@ -1,0 +1,94 @@
+{% load static %}
+<!-- Vertical Navbar for Larger Devices -->
+<div class="vertical-nav d-none d-lg-block">
+    <div class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'Image/ProjectEcommerce-AdminLogo.png' %}" alt="Logo">
+        <span>Admin</span>
+    </div>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'adminHome' %}">
+                <i class="fas fa-home mr-2"></i>Home
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'addCategory' %}">
+                <i class="fas fa-folder-plus mr-2"></i>Add Category
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'addProduct' %}">
+                <i class="fas fa-box mr-2"></i>Add Product
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'viewProduct' %}">
+                <i class="fas fa-th-list mr-2"></i>View Products
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'viewUser' %}">
+                <i class="fas fa-users mr-2"></i>View Users
+            </a>
+        </li>        
+    </ul>
+</div>
+<!-- Combined Navbar for Small Devices -->
+<nav class="navbar navbar-expand-lg d-lg-none fixed-top">
+    <div class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'Image/ProjectEcommerce-AdminLogo.png' %}" alt="Logo">
+        <span>Admin</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#combinedNavbar" aria-controls="combinedNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="combinedNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'adminHome' %}">
+                    <i class="fas fa-home mr-2"></i>Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'addCategory' %}">
+                    <i class="fas fa-folder-plus mr-2"></i>Add Category
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'addProduct' %}">
+                    <i class="fas fa-box mr-2"></i>Add Product
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'viewProduct' %}">
+                    <i class="fas fa-th-list mr-2"></i>View Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'viewUser' %}">
+                    <i class="fas fa-users mr-2"></i>View Users
+                </a>
+            </li>        
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
+                    <i class="fas fa-sign-out-alt mr-1"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+ <!-- Horizontal Navbar for Larger Devices -->
+ <nav class="navbar navbar-expand-lg d-none d-lg-flex horizontal-navbar fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
+                    <i class="fas fa-sign-out-alt mr-1"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,46 @@
+{% load static %}
+<footer class="footer text-white">
+    <div class="container">
+        <div class="row">
+            <!-- First Column: Contact Information -->
+            <div class="col-md-4">
+                <h5 class="footer-title">The Gifting Corner</h5>
+                <p class="footer-text">MG Road,<br>Near City Centre Mall,<br>Kochi, Kerala - 682016</p>
+            </div>
+            <!-- Second Column: Contact Icons -->
+            <div class="col-md-4" id="contact">
+                <p class="footer-text">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210<br>
+                    <i class="fas fa-envelope"></i> 
+                    <a class="footer-link" id="footerEmail">contact@gifthavenkerala.com</a>
+                </p>
+            </div>
+            <!-- Third Column: Button -->
+            <div class="col-md-4 text-md-right" id="gift-shop-btn-division">
+                <a class="btn footer-btn" id="gift-shop-btn">GIFT SHOP</a>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="row mt-3">
+            <!-- Social Media Links -->
+            <div class="col-md-4 p-2">
+                <a class="footer-icon mr-3"><i class="fab fa-facebook"></i></a>
+                <a class="footer-icon mr-3"><i class="fab fa-youtube"></i></a>
+                <a class="footer-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <!-- Footer Links -->
+            <div class="col-md-4 p-2" id="footer-link">
+                <a class="footer-link mr-3" href="{% url 'adminHome' %}">Home</a><br>
+                <a class="footer-link mr-3" href="{% url 'addCategory' %}">Add category</a><br>
+                <a class="footer-link mr-3" href="{% url 'addProduct' %}">Add product</a><br>
+                <a class="footer-link mr-3" href="{% url 'viewProduct' %}">View products</a><br>
+                <a class="footer-link mr-3" href="{% url 'viewUser' %}">View users</a><br>
+                <a class="footer-link mr-3" href="{% url 'logout' %}">Logout</a><br>
+            </div>
+            <!-- Logo -->
+            <div class="col-md-4 text-md-right p-2" id="footerLogo-division">
+                <img src="{% static 'Image/ProjectEcommerce-GuestLogo.png' %}" alt="Logo" class="img-fluid" id="footerLogo">
+            </div>
+        </div>
+    </div>
+</footer> 

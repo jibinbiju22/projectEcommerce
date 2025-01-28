@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            overscroll-behavior: none;
+        }
+        #header-container-fluid{
+            background-image: url('{% static "Image/ProjectEcommerce-GuestHome-Header.png" %}');
+            min-height: 90vh;
+            background-size: cover;
+            background-position:right;
+            background-color: rgba(0, 0, 0, 0.2);
+            background-blend-mode: overlay;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Navbar CSS */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #8B0000;
+        }
+        .logo {
+            width: 40px; /* Increased width */
+            height: 40px; /* Increased height */
+            object-fit: contain; /* Ensures the logo is properly scaled */
+        }
+        .navbar-brand {
+            color: #f8f9fa;
+        }
+        .nav-link {
+            color: #f8f9fa;
+            text-decoration: none; /* Remove default underline */
+            position: relative;    /* Required for pseudo-element positioning */
+            transition: all 0.3s ease;
+        }
+        .nav-link:active {
+            color: white;
+        }
+        .navbar-toggler {
+            border-color: white;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White icon */
+        }
+        #header-container {
+            text-align: center;
+        }
+        #featuredProducts-container-fluid {
+            background-image: url('{% static "Image/ProjectEcommerce-WhiteBackground1.jpg" %}');
+            background-size: cover;
+            background-position:center;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .card img {
+            object-fit: cover;
+            height: 250px;
+        }
+        /* Add border to the card */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px; /* Optional rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Add hover effect */
+        .product-card:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+        }
+        #featuredProducts-container h3 {
+            text-align: center;
+        }
+        .badge {
+            top: 5px; 
+            right: 5px;
+        }
+        #gift-shop-btn:hover {
+            cursor:text;
+        }
+        #footerLogo {
+            width: 40px;
+            height: 40px;
+        }
+        #footerEmail:hover {
+            text-decoration: none;
+        }
+        .footer {
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-title {
+            margin-bottom: 10px;
+        }
+        .footer-text {
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .footer-btn {
+            background-color: white;
+            color: #333;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        .footer-btn:hover {
+            background-color: white;
+            color: #333;
+        }
+        .footer-divider {
+            border-color: white;
+            margin: 20px 0;
+        }
+        .footer-icon {
+            color: white;
+        }
+        .footer-icon:hover {
+            color: white;
+        }
+
+        @media (min-width: 992px) {
+            .nav-link:hover::after {
+                width: 100%; /* Expand underline on hover */
+            }
+        }
+        @media (max-width: 992px) and (min-width: 768px) {
+            .nav-link:hover::after {
+                width: 8%; /* Expand underline on hover */
+            }
+        }
+        @media (min-width: 768px) {
+            .nav-link:hover {
+                color: white;
+            }
+            .nav-link::after {
+                content: ""; /* Create the underline */
+                position: absolute;
+                bottom: 0; /* Align underline to the bottom */
+                left: 0;
+                width: 0; /* Start with no underline */
+                height: 2px; /* Thickness of the underline */
+                background-color: white; /* Color of the underline */
+                transition: width 0.3s ease; /* Smooth expansion effect */
+            }
+        }
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size:xx-large;
+            }
+            #contact {
+                margin-top: 25px;
+            }
+            #gift-shop-btn-division {
+                margin-top: 25px;
+            }
+            #footer-link {
+                margin-top: 10px;
+            }
+            #footerLogo-division {
+                margin-top: 10px;
+            }
+        }     
+    </style>
+</head>
+<body>
+    {% include 'Guest/Navbar.html' %}
+    <div class="container-fluid" id="header-container-fluid">
+        <div class="container text-light" id="header-container">
+            <h1>Spread Joy with the Perfect Gift!</h1>
+            <p>Discover unique, handpicked treasures for every occasion and every special someone.</p>
+            <button type="button" class="btn btn-danger">EXPLORE</button>
+        </div>
+    </div>
+    <div class="container-fluid" id="featuredProducts-container-fluid">
+        <div class="container py-5" id="featuredProducts-container">
+            <h3 class="mb-4"><b>FEATURED PRODUCTS</b></h3>
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <a class="text-dark font-weight-bold">BEST SELLERS</a>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card border position-relative product-card">
+                        <span class="badge badge-danger position-absolute">-25%</span>
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product1.jpg' %}" class="card-img-top" alt="Traxxas Slash">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Traxxas Slash</h5>
+                            <p class="text-muted">₹20,000</p>
+                        </div>
+                    </div>
+                </div>             
+                <!-- Product 2 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card border position-relative product-card">
+                        <span class="badge badge-danger position-absolute">-15%</span>
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product2.jpg' %}" class="card-img-top" alt="Engagement Ring">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Engagement Ring</h5>
+                            <p class="text-muted">₹30,000</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card border position-relative product-card">
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product3.jpg' %}" class="card-img-top" alt="Festina Watch">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Festina Watch</h5>
+                            <p class="text-muted">₹3,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <a class="text-dark font-weight-bold">NEW ARRIVALS</a>
+                </div>
+            </div>
+            <div class="row">
+                 <!-- Product 4 -->
+                 <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card border position-relative product-card">
+                        <span class="badge badge-danger position-absolute">-35%</span>
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product4.jpg' %}" class="card-img-top" alt="Shoulder Bag">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Shoulder Bag</h5>
+                            <p class="text-muted">₹5,000</p>
+                        </div>
+                    </div>
+                </div>             
+                <!-- Product 5 -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card border position-relative product-card">
+                        <span class="badge badge-danger position-absolute">-20%</span>
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product5.jpg' %}" class="card-img-top" alt="Sunglasses">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Sunglasses</h5>
+                            <p class="text-muted">₹1,000</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card border position-relative product-card">
+                        <span class="badge badge-danger position-absolute">-10%</span>
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product6.jpg' %}" class="card-img-top" alt="Apple AirPods Pro">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Apple AirPods Pro</h5>
+                            <p class="text-muted">₹24,900</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card border position-relative product-card">
+                        <img src="{% static 'Image/ProjectEcommerce-GuestHome-Product7.jpg' %}" class="card-img-top" alt="Black Leather Dress Shoes">
+                        <div class="card-body text-center">
+                            <hr>
+                            <h5 class="card-title">Black Leather Dress Shoes</h5>
+                            <p class="text-muted">₹2,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    {% include 'Guest/Footer.html' %}
+    <script>
+        // Change navbar background on scroll
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) { // Check if scrolled down 50px or more
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
